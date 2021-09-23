@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="text-center my-0 my-md-3 header">
+    <div
+      class="text-center my-0 my-md-3 header"
+      :style="{
+        backgroundImage: 'url(' + require('@/assets/' + img + '.jpg') + ')',
+      }"
+    >
       <h1>Beauty Store</h1>
       <p>Absolute Quality, Absolute Price</p>
     </div>
@@ -66,6 +71,7 @@ export default {
         "https://media.istockphoto.com/photos/spa-products-for-home-skin-care-picture-id1141698953?s=612x612",
         "https://media.istockphoto.com/photos/woman-cosmetologist-cosmetics-testing-natural-organic-cosmetics-serum-picture-id1164263699?s=612x612",
       ],
+      img: "buauty",
     };
   },
 
@@ -108,7 +114,7 @@ export default {
   color: red !important;
 }
 .header {
-  background-image: url(https://media.istockphoto.com/photos/set-of-decorative-cosmetic-picture-id493029628?k=20&m=493029628&s=612x612&w=0&h=5mU5Zh62ALWfhCciWpyHveY2PYw146tQjytYNvC7UFI=);
+  /* background-image: url(https://media.istockphoto.com/photos/set-of-decorative-cosmetic-picture-id493029628?k=20&m=493029628&s=612x612&w=0&h=5mU5Zh62ALWfhCciWpyHveY2PYw146tQjytYNvC7UFI=); */
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;

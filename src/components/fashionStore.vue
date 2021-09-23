@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-center my-md-3 my-0 header">
+    <div class="text-center my-md-3 my-0 header__store">
       <h1>Fashion Store</h1>
       <p>Absolute Quality, Absolute Price</p>
     </div>
@@ -106,7 +106,7 @@ export default {
   display: none !important;
   color: red !important;
 }
-.header {
+.header__store {
   background-image: url(https://static.fibre2fashion.com/articleresources/images/23/2287/fashion-big_Big.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;

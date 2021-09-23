@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="text-center my-0 my-md-3 header">
+    <div
+      class="text-center my-0 my-md-3 header__store"
+      :style="{
+        backgroundImage: 'url(' + require('@/assets/' + img + '.jpg') + ')',
+      }"
+    >
       <h1>Machine Store</h1>
       <p>Absolute Quality, Absolute Price</p>
     </div>
@@ -68,6 +73,7 @@ export default {
         "https://media.istockphoto.com/photos/woman-steaming-milk-for-cappuccino-on-professional-espresso-machine-picture-id804426098?k=20&m=804426098&s=612x612&w=0&h=a7RilOYloE7K98HnONUzsqpV7wtJuYcWIcN8yQ0IZOk=",
         "https://media.istockphoto.com/photos/hand-holding-a-paper-glass-to-pour-the-lemonade-soda-soft-drink-in-a-picture-id1163129182?k=20&m=1163129182&s=612x612&w=0&h=RVY8b3L_N5503-S04C9CUjsp_voM1vapRrgFLPpwxs0=",
       ],
+      img: "machine",
     };
   },
 
@@ -109,12 +115,12 @@ export default {
   display: none !important;
   color: red !important;
 }
-.header {
+.header__store {
   margin-top: 3rem;
-  background-image: url(https://media.istockphoto.com/photos/hand-holding-a-paper-glass-to-pour-the-lemonade-soda-soft-drink-in-a-picture-id1163129182?k=20&m=1163129182&s=612x612&w=0&h=RVY8b3L_N5503-S04C9CUjsp_voM1vapRrgFLPpwxs0=);
+  /* background-image: url(https://media.istockphoto.com/photos/hand-holding-a-paper-glass-to-pour-the-lemonade-soda-soft-drink-in-a-picture-id1163129182?k=20&m=1163129182&s=612x612&w=0&h=RVY8b3L_N5503-S04C9CUjsp_voM1vapRrgFLPpwxs0=); */
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
