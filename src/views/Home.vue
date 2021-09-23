@@ -133,6 +133,10 @@
                 align-items-center
                 justify-content-center
               "
+              :style="{
+                backgroundImage:
+                  'url(' + require('@/assets/' + beautyImg + '.jpg') + ')',
+              }"
               @click="goToBeautyStore()"
             >
               <h4 style="color: #000" class="font-weight-bold">Beauty Store</h4>
@@ -161,6 +165,10 @@
                 align-items-center
                 justify-content-center
               "
+              :style="{
+                backgroundImage:
+                  'url(' + require('@/assets/' + machineImg + '.jpg') + ')',
+              }"
               @click="goToMachineStore()"
             >
               <h4 style="color: #000" class="font-weight-bold">
@@ -272,6 +280,8 @@ export default {
       img: "one",
       imgTwo: "one",
       imgThree: "four",
+      beautyImg: "buauty",
+      machineImg: "machine",
     };
   },
   methods: {
@@ -312,7 +322,7 @@ export default {
   box-shadow: none !important;
 }
 .beauty__products {
-  background-image: url(https://media.istockphoto.com/photos/set-of-decorative-cosmetic-picture-id493029628?k=20&m=493029628&s=612x612&w=0&h=5mU5Zh62ALWfhCciWpyHveY2PYw146tQjytYNvC7UFI=);
+  /* background-image: url(https://media.istockphoto.com/photos/set-of-decorative-cosmetic-picture-id493029628?k=20&m=493029628&s=612x612&w=0&h=5mU5Zh62ALWfhCciWpyHveY2PYw146tQjytYNvC7UFI=); */
   height: 300px;
 }
 .fashion__products {
@@ -320,7 +330,7 @@ export default {
   height: 300px;
 }
 .machine__products {
-  background-image: url(https://media.istockphoto.com/photos/woman-steaming-milk-for-cappuccino-on-professional-espresso-machine-picture-id804426098?k=20&m=804426098&s=612x612&w=0&h=a7RilOYloE7K98HnONUzsqpV7wtJuYcWIcN8yQ0IZOk=);
+  /* background-image: url(https://media.istockphoto.com/photos/woman-steaming-milk-for-cappuccino-on-professional-espresso-machine-picture-id804426098?k=20&m=804426098&s=612x612&w=0&h=a7RilOYloE7K98HnONUzsqpV7wtJuYcWIcN8yQ0IZOk=); */
   height: 300px;
 }
 .beauty__products:hover,
