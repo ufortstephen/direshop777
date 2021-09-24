@@ -174,7 +174,7 @@ export default {
       this.$router.push("/");
     },
     gotoOrganizerLogin() {
-      this.$router.push("/login/organizer");
+      //   this.$router.push("/login/organizer");
     },
   },
 };
