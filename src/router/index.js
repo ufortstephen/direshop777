@@ -9,6 +9,7 @@ const routes = [{
         name: 'Home',
         component: Home
     },
+
     {
         path: '/about',
         name: 'About',
@@ -16,14 +17,27 @@ const routes = [{
         component: function() {
             return import ('../views/About.vue')
         }
-    }, {
+    },
+    {
+        path: '/login',
+        name: 'Login',
+
+        component: function() {
+            return import ('../views/login.vue')
+        }
+    },
+
+
+    {
         path: '/beauty_store',
         name: 'Beauty Store',
 
         component: function() {
             return import ('../components/beautyStore')
         },
-    }, {
+    },
+
+    {
         path: '/fashion_store/:details/:e',
         name: 'Fashion Product Details',
 
@@ -32,6 +46,7 @@ const routes = [{
         },
 
     },
+
     {
         path: '/beauty_store/:details/:e',
         name: 'Beauty Product Details',
@@ -50,7 +65,9 @@ const routes = [{
             return import ('../components/machineProduct')
         },
 
-    }, {
+    },
+
+    {
         path: '/machine_store',
         name: 'Machine Store Details',
 
@@ -58,7 +75,9 @@ const routes = [{
             return import ('../components/machineStore')
         },
 
-    }, {
+    },
+
+    {
         path: '/fashion_store',
         name: 'Fashion Store Details',
 

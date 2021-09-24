@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <appheader />
+    <!-- <appheader /> -->
 
-    <router-view style="position: relative; top: 3.7rem" />
-    <appFooter />
+    <router-view />
+    <!-- <appFooter /> -->
     <button class="btn btn-dark modal__btn" id="modal__btn">
       O <br />
       P <br />E <br />
@@ -42,6 +42,10 @@ body {
   background-blend-mode: overlay;
   /* background-color: rgb(0, 0, 0); */
   /* z-index: 99999999999999; */
+}
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 217, 0, 0.515);
 }
 
 button {
@@ -159,7 +163,7 @@ button:focus {
 }
 
 .navbar-brand img {
-  width: 70%;
+  width: 20%;
 }
 
 .nav-link {
@@ -280,7 +284,7 @@ button:focus {
   /* margin-top: 1.9rem; */
   text-align: center;
   padding-top: 2rem;
-  position: relative;
+  /* position: relative; */
   top: 0.7rem;
 }
 
@@ -394,6 +398,11 @@ button:focus {
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
+}
+
+.store__top {
+  padding-top: 3rem;
+  margin-top: 1rem;
 }
 
 /* MEDIA QUERIES */
@@ -514,10 +523,11 @@ button:focus {
     display: block;
   }
 }
+@media (min-width: 768px) {
+  .store__top {
+    padding-top: 13rem;
 
-/* display: block;
-
+    margin-top: 1rem;
+  }
 }
-
-} */
 </style>

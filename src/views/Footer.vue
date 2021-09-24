@@ -3,8 +3,8 @@
     <footer class="footer bg-dark">
       <div class="p-3 px-md-5 text-white">
         <div class="footer__grid justify-content-between">
-          <div>
-            <img src="@/assets/logo (2).png" alt="" />
+          <div class="text-center text-md-left">
+            <img src="@/assets/logo2.png" alt="" class="footer__img" />
             <p class="my-3">
               There are many variations of passages of lorem ipsum available,
               but the majority suffered.
@@ -98,4 +98,16 @@ export default {
 </script>
 
 <style>
+.footer__img {
+  width: 50%;
+  position: relative;
+  /* left: -2.2rem; */
+}
+@media (min-width: 768px) {
+  .footer__img {
+    width: 25%;
+    position: relative;
+    left: -7%;
+  }
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <appheader />
     <main>
       <!-- <section class="carousel-div p-5"></section> -->
       <div id="carouselId" class="carousel slide" data-ride="carousel">
@@ -260,6 +261,7 @@
         CLOSE
       </button>
     </div> -->
+    <appFooter />
   </div>
 </template>
 
@@ -270,6 +272,7 @@ import appFooter from "./Footer.vue";
 import appheader from "./Header.vue";
 
 export default {
+  title: "Dire Beauty & Health Store",
   name: "Home",
   components: {
     appheader,

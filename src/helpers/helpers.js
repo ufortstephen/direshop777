@@ -8,10 +8,10 @@ const baseUrl = "https://direshop777.herokuapp.com/api/"
 
 export default {
     // Login
-    // async login(credentials) {
-    //     return axios.post(baseUrl + 'auth/login', credentials)
-    //         .then(response => response.data)
-    // },
+    async login(user_details) {
+        return axios.post(baseUrl + 'login', user_details)
+            .then(response => response.data)
+    },
 
     // Load Beauty Store Products
 

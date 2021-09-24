@@ -5,7 +5,8 @@
     element-loading-background="rgba(0, 0, 0, 0.5)"
     class="my-0 my-md-5"
   >
-    <div class="container mb-5 pt-5">
+    <appheader />
+    <div class="container mb-5 store__top" >
       <h4 class="mb-2">
         {{ product.product_description }}
       </h4>
@@ -89,7 +90,14 @@
 
 <script>
 import api from "../helpers/helpers";
+import appFooter from "../views/Footer.vue";
+import appheader from "../views/Header.vue";
 export default {
+  title: "Dire Beauty Store Products",
+  components: {
+    appFooter,
+    appheader,
+  },
   data() {
     return {
       loading: false,

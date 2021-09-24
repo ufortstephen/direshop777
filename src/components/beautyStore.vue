@@ -1,5 +1,6 @@
 <template>
   <div>
+    <appheader />
     <div
       class="text-center my-0 my-md-3 header"
       :style="{
@@ -58,7 +59,14 @@
 
 <script>
 import api from "../helpers/helpers";
+import appFooter from "../views/Footer.vue";
+import appheader from "../views/Header.vue";
 export default {
+  title: "Dire Beauty Store Products",
+  components: {
+    appFooter,
+    appheader,
+  },
   data() {
     return {
       currentDate: new Date(),
@@ -117,7 +125,7 @@ export default {
   /* background-image: url(https://media.istockphoto.com/photos/set-of-decorative-cosmetic-picture-id493029628?k=20&m=493029628&s=612x612&w=0&h=5mU5Zh62ALWfhCciWpyHveY2PYw146tQjytYNvC7UFI=); */
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.426);
   display: flex;
@@ -125,5 +133,6 @@ export default {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-top: 1rem !important;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <appheader />
     <div class="text-center my-md-3 my-0 header__store">
       <h1>Fashion Store</h1>
       <p>Absolute Quality, Absolute Price</p>
@@ -53,7 +54,14 @@
 
 <script>
 import api from "../helpers/helpers";
+import appFooter from "../views/Footer.vue";
+import appheader from "../views/Header.vue";
 export default {
+  title: "Dire Beauty Fashion Products",
+  components: {
+    appFooter,
+    appheader,
+  },
   data() {
     return {
       currentDate: new Date(),
@@ -110,7 +118,7 @@ export default {
   background-image: url(https://static.fibre2fashion.com/articleresources/images/23/2287/fashion-big_Big.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 400px;
+  height: 500px;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.426);
   display: flex;
@@ -118,5 +126,6 @@ export default {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-top: 1rem;
 }
 </style>

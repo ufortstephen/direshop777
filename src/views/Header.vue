@@ -261,23 +261,29 @@
     <!-- Navbar -->
     <section class="bg-dark px-3 px-md-5">
       <nav class="navbar navbar-expand-sm navbar-light px-0">
-        <a class="navbar-brand" href="#"
-          ><img src="@/assets/logo (2).png" alt="" @click="goHome()" />
+        <div class="d-flex justify-content-between py-2">
+          <span class="text-left">
+            <img
+              src="@/assets/logo2.png"
+              alt=""
+              @click="goHome()"
+              class="header__img"
+            />
+          </span>
 
-          <br />
-        </a>
-        <button
-          class="navbar-toggler d-lg-none"
-          id="navToggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <button
+            class="navbar-toggler d-lg-none"
+            id="navToggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav ml-ato ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
@@ -307,7 +313,7 @@
               >
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <span class="nav-link links">
                 <el-dropdown>
                   <span
@@ -317,9 +323,7 @@
                     PRODUCTS<i class="el-icon-arrow-down el-icon--right"></i>
                   </span>
                   <el-dropdown-menu slot="dropdown" class="dropdown__box">
-                    <span @click="goToBeautyStore()"
-                      ><el-dropdown-item>Beauty </el-dropdown-item></span
-                    >
+                    <span><el-dropdown-item>Beauty </el-dropdown-item></span>
                     <span @click="goToFashionStore()"
                       ><el-dropdown-item>Fashion </el-dropdown-item></span
                     >
@@ -330,13 +334,77 @@
                 </el-dropdown>
                 <span class="sr-only">(current)</span></span
               >
+            </li> -->
+
+            <li class="nav-item">
+              <a
+                class="nav-link links"
+                style="color: #00b6f0"
+                href="#"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                @click="goToBeautyStore()"
+                >BEAUTY STORE</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link links" style="color: #00b6f0" href="#">SHOP</a>
+              <a
+                class="nav-link links"
+                style="color: #00b6f0"
+                href="#"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                @click="goToFashionStore()"
+                >FASHION STORE</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link links"
+                style="color: #00b6f0"
+                href="#"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                @click="goToMachineStore()"
+                >MACHINE STORE</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link links"
+                style="color: #00b6f0"
+                href="#"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                @click="goToMachineStore()"
+                >SHOP</a
+              >
             </li>
             <li class="nav-item">
-              <button class="links nav-link" style="color: #00b6f0">
+              <button
+                class="links nav-link"
+                style="color: #00b6f0"
+                @click="goToLogin()"
+              >
                 LOGIN/CONTACT US
               </button>
             </li>
@@ -402,6 +470,9 @@ export default {
     goHome() {
       this.$router.push("/");
     },
+    goToLogin() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>
@@ -424,5 +495,10 @@ export default {
 }
 .dropdown__box {
   width: 200px;
+}
+.header__img {
+  width: 25%;
+  position: relative;
+  left: -7%;
 }
 </style>

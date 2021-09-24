@@ -3,20 +3,22 @@
     style="background-color: #dce1e1 !important"
     v-loading="loading"
     element-loading-background="rgba(0, 0, 0, 0.5)"
-    class="my-0 my-md-5"
+    class="my-0 my-md-0"
   >
-    <div class="container mb-5 pt-5">
-      <h4 class="mb-2">
-        {{ product.product_description }}
+    <appheader />
+    <div class="container mb-5 store__top">
+      <h4 class="my-3">
+        {{ product.product_name }}
       </h4>
 
       <p>Machines. Make household chores less taskful.</p>
+
       <div class="row">
         <div class="col-md-8">
           <el-card :body-style="{ padding: '0px' }" class="my-4">
             <div class="text-center">
               <img
-                :src="images[$route.params.e]"
+                :src="product.product_image"
                 class="image w-90 ml-auto mr-auto text-center"
                 style="height: 400px"
               />
@@ -43,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-5" style="background-color: #dce1e1 !important">
+    <div class="mt-5 pb-5" style="background-color: #dce1e1 !important">
       <div class="container">
         <h6>Similar Products</h6>
         <el-row class="row mt-5">
@@ -56,7 +58,7 @@
           >
             <el-card :body-style="{ padding: '0px' }" class="mb-5">
               <img
-                :src="images[index]"
+                :src="product.product_image"
                 class="image w-100"
                 style="height: 200px"
               />
@@ -72,7 +74,7 @@
                   <el-button
                     type="text"
                     class="button"
-                    @click="rowClicked(product.id, product.product_description)"
+                    @click="rowClicked(product.id, index, product.product_name)"
                     id="index"
                     >View More
                     <i class="fa fa-caret-right ml-2" aria-hidden="true"></i
@@ -89,43 +91,56 @@
 
 <script>
 import api from "../helpers/helpers";
+import appFooter from "../views/Footer.vue";
+import appheader from "../views/Header.vue";
 export default {
+  title: "Dire Beauty Machine Products",
+  components: {
+    appFooter,
+    appheader,
+  },
   data() {
     return {
       loading: false,
       machineProduct: "",
       product: "",
-      images: [
-        "https://media.istockphoto.com/photos/coffee-blender-and-boiler-machine-in-kitchen-interior-picture-id524908249?s=612x612",
-        "https://media.istockphoto.com/photos/woman-steaming-milk-for-cappuccino-on-professional-espresso-machine-picture-id804426098?k=20&m=804426098&s=612x612&w=0&h=a7RilOYloE7K98HnONUzsqpV7wtJuYcWIcN8yQ0IZOk=",
-        "https://media.istockphoto.com/photos/hand-holding-a-paper-glass-to-pour-the-lemonade-soda-soft-drink-in-a-picture-id1163129182?k=20&m=1163129182&s=612x612&w=0&h=RVY8b3L_N5503-S04C9CUjsp_voM1vapRrgFLPpwxs0=",
-      ],
     };
   },
   methods: {
     async getmachineProductProducts() {
       try {
         this.loading = false;
-        const num = +this.$route.params.e;
+        const num = this.$route.params.details;
         const response = await api.machineStoreProducts();
-        this.machineProduct = response;
-        const beauty_product = response.find((item, index) => num == item.id);
+        const beauty_product = response.find(
+          (item, index) => num == item.product_name
+        );
         this.product = beauty_product;
+        this.machineProduct = response;
         this.loading = false;
+        this.trimText();
       } catch (error) {
         console.log(error.response);
         this.loading = false;
       }
     },
-    rowClicked(e, details) {
+    rowClicked(e, index, details) {
       e = e - 1;
       //   console.log(id);
-      this.$router.push({
-        path: `/beauty_store/${details}/${e}`,
+      this.$router.go({
+        path: `machine_store/${details}/${index}`,
       });
       this.getmachineProductProducts();
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    trimText() {
+      this.machineProduct.forEach((machine) => {
+        machine.product_description = machine.product_description.substring(
+          0,
+          400
+        );
+      });
     },
   },
 

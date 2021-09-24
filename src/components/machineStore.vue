@@ -1,5 +1,6 @@
 <template>
   <div>
+    <appheader />
     <div
       class="text-center my-0 my-md-3 header__store"
       :style="{
@@ -23,8 +24,8 @@
         >
           <el-card :body-style="{ padding: '0px' }" class="mb-5">
             <img
-              :src="images[index]"
-              class="image w-100"
+              :src="product.product_image"
+              class="image w-100 my-3"
               style="height: 200px"
             />
             <div style="padding: 14px">
@@ -39,7 +40,7 @@
                 <el-button
                   type="text"
                   class="button"
-                  @click="rowClicked(product.id, product.product_description)"
+                  @click="rowClicked(product.id, index, product.product_name)"
                   id="index"
                   >View More
                   <i class="fa fa-caret-right ml-2" aria-hidden="true"></i
@@ -59,10 +60,14 @@
 
 <script>
 import api from "../helpers/helpers";
-import postProduct from "./postProducts.vue";
+
+import appFooter from "../views/Footer.vue";
+import appheader from "../views/Header.vue";
 export default {
+  title: "Dire Beauty Machine Products",
   components: {
-    postProduct,
+    appFooter,
+    appheader,
   },
   data() {
     return {
@@ -81,20 +86,29 @@ export default {
     async getMachineStoreProducts() {
       try {
         const response = await api.machineStoreProducts();
-        console.log(response);
         this.machineStore = response;
+        this.trimText();
       } catch (error) {
         console.log(error.response);
       }
     },
-    rowClicked(e, details) {
+    rowClicked(e, index, details) {
       e = e - 1;
       //   console.log(id);
       this.$router.push({
-        path: `machine_store/${details}/${e}`,
+        path: `machine_store/${details}/${index}`,
       });
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+
+    trimText() {
+      this.machineStore.forEach((machine) => {
+        machine.product_description = machine.product_description.substring(
+          0,
+          400
+        );
+      });
     },
   },
 
@@ -120,11 +134,12 @@ export default {
   /* background-image: url(https://media.istockphoto.com/photos/hand-holding-a-paper-glass-to-pour-the-lemonade-soda-soft-drink-in-a-picture-id1163129182?k=20&m=1163129182&s=612x612&w=0&h=RVY8b3L_N5503-S04C9CUjsp_voM1vapRrgFLPpwxs0=); */
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-top: 1rem;
 }
 </style>
